@@ -2,7 +2,7 @@ from pyowm import OWM
 from time import sleep
 
 
-API_key = "a6841334e3bbee8d1bdab906e8d1331a"
+API_key = ""
 owm = OWM(API_key=API_key)
 
 

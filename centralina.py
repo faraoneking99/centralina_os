@@ -1,4 +1,5 @@
 import threading
+import time
 
 import jsonpickle
 import json
@@ -6,6 +7,7 @@ import meteo_pyowm
 import utilities
 from oggetti import Programma
 import logging
+from prettytable import PrettyTable
 
 global meteo
 meteo = ""
@@ -72,10 +74,13 @@ class Centralina(object):
             print("Errore, creazione annullata")
 
     def __mostra_programmi__(self):
+
         print(" --- Lista dei programmi --- ")
+        x = PrettyTable()
+        x.field_names = ["ID", "Nome", "N° settori", "Abilitato"]
         i = 0
         for programma in self.lista_programmi:
-            print(str(i) + ". \t" + programma.nome + "\t ATTIVO: " + str(programma.status))
+            x.add_row([i, programma.nome, len(programma.lista_settori), str(programma.status)])
             i += 1
 
     def __salva_configurazione__(self):
@@ -138,14 +143,10 @@ class Centralina(object):
                 programma.status = False
                 programma.__stop__()
 
-    """
-    ALTO RISCHIO DI DANNI, EVITARE MODIFICHE AFFRETTATE
-    """
-
     def __avvia_programmi__(self):
         while 1:
             self.__scan_programs__()
+            print("scan")
+            time.sleep(1)
 
-    """
-    FINE DELLA ZONA AD ALTO RISCHIO DI DANNI
-    """
+    # def __add_settore_to_programma__(self):
