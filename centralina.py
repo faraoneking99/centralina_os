@@ -35,7 +35,8 @@ class Centralina(object):
     def __init__(self, nome, latitudine, longitudine, portata):
         self.nome = nome
 
-        logging.basicConfig(filename=str(self.nome + '.log'), level=logging.DEBUG, format='%(asctime)s %(message)s')
+        logging.basicConfig(filename=str("logs/" + self.nome + '.log'), level=logging.DEBUG,
+                            format='%(asctime)s %(message)s')
 
         if utilities.check_coordinates(latitudine, longitudine) is not None:
             self.latitudine, self.longitudine = utilities.check_coordinates(latitudine, longitudine)
@@ -136,9 +137,6 @@ class Centralina(object):
                 # print("Fine programma:\t " + programma.nome)
                 programma.status = False
                 programma.__stop__()
-
-
-
 
     """
     ALTO RISCHIO DI DANNI, EVITARE MODIFICHE AFFRETTATE
