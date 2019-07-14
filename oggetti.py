@@ -76,6 +76,7 @@ class Programma():
             tempo_secondi = tempo_pompa * 60
             time.sleep(tempo_secondi)
             print("fine irrigazione settore: " + settore.nome)
+
     def __stop__(self):
         for settore in self.lista_settori:
             print("chiudo settore: " + settore.nome)

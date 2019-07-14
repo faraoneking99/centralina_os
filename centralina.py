@@ -94,7 +94,7 @@ class Centralina(object):
             with open('salvataggi/centralina.json', 'r+') as f:
                 frozen = json.load(f)
             centralina = jsonpickle.decode(frozen)
-            self.nome = centralina.name
+            self.nome = centralina.nome
             self.lista_programmi = centralina.lista_programmi
             self.check_meteo = centralina.check_meteo
             self.portata_pompa = centralina.portata_pompa
@@ -142,21 +142,9 @@ class Centralina(object):
     ALTO RISCHIO DI DANNI, EVITARE MODIFICHE AFFRETTATE
     """
 
-    def check_time(self, f_stop):
-        # do something here ...
-        # print(str(meteo_attuale.get_rain()))
-        if str(self.meteo_attuale.get_rain()) == "{}":
-            self.__scan_programs__()
-        if not f_stop.is_set():
-            # call check_time() again in 29 seconds
-            threading.Timer(10, self.check_time, [self, f_stop]).start()
-
-    check_time_stop = threading.Event()
-
-    # start calling f now and every 60 sec thereafter
-
     def __avvia_programmi__(self):
-        self.check_time(self.check_time_stop)
+        while 1:
+            self.__scan_programs__()
 
     """
     FINE DELLA ZONA AD ALTO RISCHIO DI DANNI
