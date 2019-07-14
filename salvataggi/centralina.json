@@ -1,1 +1,1 @@
-"{\"check_meteo\": true, \"latitudine\": \"38.369992\", \"lista_programmi\": [], \"longitudine\": \"15.954787\", \"meteo_attuale\": \"\", \"nome\": \"testing\", \"portata_pompa\": 100, \"py/object\": \"centralina.Centralina\"}"
+"{\"check_meteo\": false, \"latitudine\": \"\", \"lista_programmi\": [], \"longitudine\": \"\", \"meteo_attuale\": \"\", \"nome\": \"centralina\", \"portata_pompa\": 10, \"py/object\": \"centralina.Centralina\"}"
