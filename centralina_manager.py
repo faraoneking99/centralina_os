@@ -45,6 +45,7 @@ def main():
         print("7.\tIMPOSTA COORDINATE GPS")
         print("8.\tINFORMAZIONI")
         print("9.\tMETEO")
+        print("10.\tAGGIUNGI SETTORE A PROGRAMMA ESISTENTE")
         print("99.\tESCI")
         try:
             scelta = int(input("Seleziona un'opzione: "))
@@ -69,6 +70,8 @@ def main():
             print(centralina)
         elif scelta == 9:
             print(centralina.meteo_attuale)
+        elif scelta == 10:
+            centralina.__add_settore_to_programma__()
         elif scelta == 99:
             sys.exit(0)
 

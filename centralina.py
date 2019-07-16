@@ -5,7 +5,7 @@ import jsonpickle
 import json
 import meteo_pyowm
 import utilities
-from oggetti import Programma
+from oggetti import Programma, Settore
 import logging
 from prettytable import PrettyTable
 
@@ -82,6 +82,7 @@ class Centralina(object):
         for programma in self.lista_programmi:
             x.add_row([i, programma.nome, len(programma.lista_settori), str(programma.status)])
             i += 1
+        print(x)
 
     def __salva_configurazione__(self):
         try:
@@ -149,4 +150,7 @@ class Centralina(object):
             print("scan")
             time.sleep(1)
 
-    # def __add_settore_to_programma__(self):
+    def __add_settore_to_programma__(self):
+        self.__mostra_programmi__()
+        id = int(input("DIGITARE L'ID DEL PROGRAMMA: "))
+        self.lista_programmi[id].__crea_settore__()
